@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>Tanmoy's Portfolio</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@1,600&family=Source+Serif+Pro:wght@600&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@800&family=Josefin+Sans&display=swap" rel="stylesheet">
+
+	<style>
+		body
+		{
+			height: inherit;
+			background-image:url(img/mini2.png);
+			background-position: center;
+			background-size: cover;
+			background-attachment: fixed;
+			background-repeat: no-repeat;
+		}
+		.main-nav
+		{
+			list-style: none;
+			margin-top: 0px;
+			font-size: 18px;
+			width: 102%;
+			height: 30px;
+			padding: 2px;
+
+		}
+
+		.main-nav li
+		{
+			display: inline-block;
+			margin-left: 50px;
+			margin-top: 20px;
+
+		}
+
+		.main-nav li a
+		{
+			color: white;
+			text-decoration: none;
+			font-size: 90%;
+			font-weight: bold;
+			float: right;
+			font-size: 20px;
+		}
+
+		.row1
+		{
+			max-width: 1200px;
+			display: flex;
+			margin: auto;
+		}
+		.flex-container {
+		    display: flex;
+		    padding: 50px;
+		    vertical-align: middle;
+		    padding-top: 140px;
+		    padding-bottom: 133px;
+		}
+
+		.flex-child {
+			display: flex;
+		    flex: 1;
+		    /*border: 2px solid yellow;*/
+		}  
+
+		.flex-child:first-child {
+		    margin-right: 20px;
+		} 
+		.avatar
+		{
+			display: block;		    
+		  	margin-right: auto;
+			width: 300px;
+			height: 300px;
+			border-radius: 50%;
+			
+		}
+		.info
+		{
+			display: block;
+		    margin-right: auto;
+		    margin-left: 6%;
+		    margin-top: 3%;
+		    color: white;
+		    font-size: 25px;
+		}
+		.code
+		{
+			display: block;
+			font-size: 40px;
+			position: absolute;
+			top:46%;
+		  	left:34%;
+		  	color: white;
+		}
+		.name
+		{
+			color: rgb(249,237,161);			
+		}
+		.type
+		{
+			margin-right: auto;
+			margin-left: auto;
+			font-size: 50px;
+			color: rgb(249,237,161);
+		}
+		.fa {
+		  padding: 20px;
+		  font-size: 30px;
+		  width: 30px;
+		  text-align: center;
+		  text-decoration: none;
+		  margin: 5px 2px;
+		  border-radius: 100px;
+		  flex: left;
+		}
+
+		.fa:hover {
+		    opacity: 0.7;
+		    transition: 1s;
+
+		}
+
+		.fa-facebook {
+		  background: #3B5998;
+		  color: white;
+		}
+
+		.fa-twitter {
+		  background: #55ACEE;
+		  color: white;
+		}
+		.fa-linkedin {
+		  background: #007bb5;
+		  color: white;
+		}
+		.fa-github {
+		  background: #333;
+		  color: white;
+		}
+		.fa-instagram {
+		  background: #e1306c;
+		  color: white;
+		}
+		.fa-quora {
+		  background: #a82400;
+		  color: white;
+		}
+		.popup .overlay {
+		  position:fixed;
+		  top:0px;
+		  left:0px;
+		  width:100vw;
+		  height:100vh;
+		  background:rgba(0,0,0,0.7);
+		  z-index:1;
+		  display:none;
+		}
+
+		.popup .content {
+		  	position: absolute;
+		    top: 50%;
+		    left: 50%;
+		    transform: translate(-50%,-50%) scale(0);
+		    background: #FFE;
+		    width: 1200px;
+		    height: 630px;
+		    z-index: 2;
+		    text-align: center;
+		    padding: 20px;
+		    box-sizing: border-box;
+		    font-family: 'Josefin Sans', sans-serif;
+		    font-size: 28px;
+		    border-radius: 33px;
+		    overflow: auto;
+
+		}
+		.popup .content1 {
+		  	position: absolute;
+		    top: 50%;
+		    left: 50%;
+		    transform: translate(-50%,-50%) scale(0);
+		    background: #FFE;
+		    width: 800px;
+		    height: 400px;
+		    z-index: 2;
+		    text-align: center;
+		    padding: 20px;
+		    box-sizing: border-box;
+		    font-family: 'Inconsolata', monospace;
+		    font-size: 28px;
+		    border-radius: 33px;
+		    overflow: auto;
+
+		}
+		.popup .content1 a
+		{
+			text-decoration: none;
+			color: black;
+			text-decoration: underline;
+		}
+
+		
+
+		.popup .close-btn {
+		  cursor:pointer;
+		  position:absolute;
+		  right:20px;
+		  top:20px;
+		  width:30px;
+		  height:30px;
+		  background:#222;
+		  color:#fff;
+		  font-size:25px;
+		  font-weight:600;
+		  line-height:30px;
+		  text-align:center;
+		  border-radius:50%;
+
+		}
+		
+		.popup.active .overlay {
+		  display:block;
+		}
+
+		.popup.active .content {
+		  transition:all 300ms ease-in-out;
+		  transform:translate(-50%,-50%) scale(1);
+		}
+		.popup.active .content1 {
+		  transition:all 300ms ease-in-out;
+		  transform:translate(-50%,-50%) scale(1);
+		}
+
+		button {
+		  display: inline-block;
+		  top:50%;
+		  left:50%;
+		  padding:15px;
+		  font-size:18px;
+		  border:3px solid rgb(249,237,161);
+		  color:white;
+		  text-transform:uppercase;
+		  font-weight:600;
+		  background:rgb(33,44,40);
+		  cursor: pointer;
+		}
+		button:hover{
+			background:rgb(249,237,161);
+			color:black;
+			border:2px solid black; 
+			transition-duration: 0.7s;
+		}
+		/* width */
+		::-webkit-scrollbar {
+		  width: 0px;
+		}
+		.list-type1{
+		width:400px;
+		margin:0 auto;
+
+		}
+
+		.list-type1 ol{
+		counter-reset: li;
+		list-style: none;
+		*list-style: decimal;
+		font-size: 15px;
+		font-family: 'Inconsolata', monospace;
+		padding: 0;
+		margin-bottom: 4em;
+		}
+		.list-type1 ol ol{
+		margin: 0 0 0 2em;
+		}
+
+		.list-type1 a{
+			position: relative;
+			display: block;
+			padding: .4em .4em .4em 2em;
+			*padding: .4em;
+			margin: .5em 0;
+			background: #93C775;
+			color: #000;
+			text-decoration: none;
+			-moz-border-radius: .3em;
+			-webkit-border-radius: .3em;
+			border-radius: 10em;
+			transition: all .2s ease-in-out;
+			font-size: 23px;
+			width: 550px;
+			right: 20%;
+
+		}
+
+		.list-type1 a:hover{
+			background: #d6d4d4;
+			text-decoration:none;
+			transform: scale(1.1);
+		}
+
+		.list-type1 a:before{
+			content: counter(li);
+			counter-increment: li;
+			position: absolute;
+			left: -1.3em;
+			top: 50%;
+			margin-top: -1.3em;
+			background:#93C775;
+			height: 2em;
+			width: 2em;
+			line-height: 2em;
+			border: .3em solid #fff;
+			text-align: center;
+			font-weight: bold;
+			-moz-border-radius: 2em;
+			-webkit-border-radius: 2em;
+			border-radius: 2em;
+			color:#FFF;
+		}
+
+		
+	</style>
+</head>
+<body>
+	<!-- Pop Up Content Text -->
+	<!-- About -->
+		<div class="popup" id="popup-1">
+			  <div class="overlay"></div>
+			  <div class="content">
+				    <div class="close-btn" onclick="togglePopup1()">&times;</div>
+				    <h1 style="margin-top: 0px; margin-bottom: 10px;">About Me</h1>
+				    <p align="justify">Hi! I am Tanmoy Munshi currently pursuing Engineering in Electronics and Communication Engineering. I am highly passionate and having great interest to learn new things. Having a great interest in IoT (Internet of Things) automation tech, Data Science, Arduino projects, Coding, Research. I am having huger to work on projects. My hobbies are photography (specially having inclination to nature and aviation photography), blogging, coding, travelling and listening to musics. I love to solve real-life problems.<br>
+				    I have participated in several hackathons and won quite a few of them. One of them was a National Level Hackathon Bengalathon 2019-20 organized by the Government of West Bengal and Nasscom. Where my team was the National Level Winner (1/139) and I was the team lead. Me and my team won the first prize with Rs 5 Lakh cash award for furthur development of the project. We solved one of the unsolved real-life problem faced by paralysis patients. This product help paralysis patient to move with the help of there eye movement. The product which we have presented was Patented in Sep 2019. I was invited as a speaker in Health Tech 3.0 organized by Medica Hospital and Bengal Chamber of Commerce and Industry (BCC&i) presented product. And participated in some of the hackathons like SIH2020, Conquer COVID 19, etc. And not to mention but I am a foodie. And I believe in smart work and working smart is the only goal to achieve efficiency in any work or project.
+				    </p>
+			  </div>
+		</div>
+	<!-- Projects -->
+		<div class="popup" id="popup-2">
+			  <div class="overlay"></div>
+			  <div class="content">
+				    <div class="close-btn" onclick="togglePopup2()">&times;</div>
+				    <h1 style="margin-top: 10‒;margin-bottom: 10px;margin-top: 11px;">Projects</h1>
+				    <div class="list-type1">
+				    <ol>
+					    <li><a>Electrooculogram Signal Acquisition System and Low Cost Wheelchair</li></a>
+						<li><a>IoT based Fully Automated Bag Valve Mask for COVID-19 Patients</li></a>
+						<li><a>AI based Emotion Detection using Voice Signal</li></a>
+						<li><a>Predicting Iris Flower using SVM</li></a>
+						<li><a>Study the effect of smoking in Heart Rate Variability</li></a>
+						<li><a>IoT Based Webapp for monitoring and controlling devices.</li></a>
+						<li><a>Eye Movement detection using Computer Vision</li></a>
+						<li><a>AI Based Mask Detection System using tensorflow 2.0 and Keras</li></a>							
+					</ol>
+				</div>
+			</div>
+		</div>
+	<!-- Achievements -->
+		<div class="popup" id="popup-3">
+			  <div class="overlay"></div>
+			  <div class="content">
+				    <div class="close-btn" onclick="togglePopup3()">&times;</div>
+				    <h1 style="margin-top: 10‒;margin-bottom: 10px;margin-top: 11px;">Achievements</h1>	    
+				    <div class="list-type1">
+						<ol>
+							<li><a>National Level Winner (1st Position) of National Level Hackathon, BENGALATHON 2019-20. (Awarded 5 Lakh)</li></a>
+							<li><a>Participated in Smart India Hackathon 2020</li></a>
+							<li><a>Best Paper Award in i3SET International Conference</li></a>
+							<li><a>1st Prize Winner of Conquer COVID 19 Online Hackathon</li></a>
+							<li><a>1st Prize Winner of IEEE CASS Technical Paper</li></a>
+							<li><a>Participated in Texas Instruments IICDC 2019</li></a>
+							<li><a>Best Paper Contributor Award NCMR 2020</li></a>
+
+						</ol>
+					</div>				
+			  </div>
+		</div>
+	<!-- Contacts -->
+		<div class="popup" id="popup-4">
+			  <div class="overlay"></div>
+			  <div class="content1">
+				    <div class="close-btn" onclick="togglePopup4()">&times;</div>				    
+				    <h1>Contact</h1>
+				    <p>Name: Tanmoy Munshi</p>
+				    <p>E-Mail ID: tanmoymunshi1999@gmail.com</p>
+				    Connect with me in <a href="" class="lol">LinkedIn</a>
+			  </div>
+		</div>
+	<!-- Publications -->
+		<div class="popup" id="popup-5">
+			  <div class="overlay"></div>
+			  <div class="content">
+				    <div class="close-btn" onclick="togglePopup5()">&times;</div>				    
+				    <h1 style="margin-top: 10‒;margin-bottom: 10px;margin-top: 11px;">Publications</h1>
+				    <div class="list-type1">
+						<ol>
+							<li><a>Electrooculogram Signal Acquisition System (PATENT)</li></a>
+							The Project is patented by the Intellectual Property India Government of India.
+							<br><br>
+							<b>Patent Status:</b> Published in The Official Journal of the Patent Office India bit.ly/tanmoyPatent<br>
+							<b>Publication Date:</b> 27/09/2019 (ISSUE NO. 39/2019) <br>
+							Application no. : 201931037381
+							<li><a>Classification of Emotions using Voice Signal-A Non-Linear Signal Processing Approach</li></a>
+							Published in SSRN journal. bit.ly/SSRNPro
+							<li><a>IoT Based Smart Farming System</li></a>
+							NCSTCS Journal, 2018 (ISBN: 978-93-86675-47-7)
+							<li><a>Study the effect of smoking in Heart Rate Variability, IEEE Technical Paper Contest</li></a>
+
+						</ol>
+					</div>
+			  </div>
+		</div>
+	
+	<!-- Pop Up click -->
+		<center>
+		<button onclick="togglePopup1()">About</button>
+		<button onclick="togglePopup2()">Projects</button>
+		<button onclick="togglePopup3()">Achievements</button>
+		<button onclick="togglePopup5()">Publication</button>
+		<button onclick="togglePopup4()">Contact</button>
+		
+
+		<button onclick="location.href = 'https://www.facebook.com/tansin99/';" id="myButton" class="float-left submit-button" >Resume</button>
+		
+		</center>
+		<script>
+			function togglePopup1(){
+			  document.getElementById("popup-1").classList.toggle("active");
+			}
+			function togglePopup2(){
+			  document.getElementById("popup-2").classList.toggle("active");
+			}
+			function togglePopup3(){
+			  document.getElementById("popup-3").classList.toggle("active");
+			}
+			function togglePopup4(){
+			  document.getElementById("popup-4").classList.toggle("active");
+			}
+			function togglePopup5(){
+			  document.getElementById("popup-5").classList.toggle("active");
+			}
+			
+		</script>
+
+	<div class="flex-container">
+
+		<div class="flex-child magenta">
+		    <div class="profile">						
+				<img src="img/profile1.jpg" class="avatar" style="border: 8px solid rgb(249,237,161)">
+		  	</div>
+		  	<div class="info">							
+				<h1>Hi! I'm <span class="name">Tanmoy Munshi</span></h1>
+				<h1 class="role">I am a <span class="type"></span></h1>							
+			</div>	  	  
+		    <script src="typed.min.js"></script>
+			<script>
+				var typed = new Typed('.type', {
+				  strings: ['Engineer.','Developer.','Product Designer.', 'Innovator.', 'Writer.', 'Photographer.'],
+				  typeSpeed: 50,
+				  backSpeed: 30,
+				  loop:true,
+				});
+			</script>
+		</div>
+  
+	</div>
+	<div class="social">
+		<center>
+		<a href="https://www.facebook.com/tansin99/" class="fa fa-facebook" target="_blank"></a>
+		<a href="https://www.linkedin.com/in/tanmoymunshi/" class="fa fa-linkedin" target="_blank"></a>
+		<a href="https://github.com/tanmoy1999" class="fa fa-github" target="_blank"></a>
+		<a href="https://www.instagram.com/lifeoftanny/" class="fa fa-instagram" target="_blank"></a>
+		<a href="https://www.quora.com/profile/Tanmoy-Munshi-2" class="fa fa-quora" target="_blank"></a>
+		</center>
+	</div>
+	
+	<!--COUNTER-->
+	<div id="sfcr4bxgygn5cdwjgk18hhx7xehya7g2es6"></div>
+	<script type="text/javascript" src="https://counter3.stat.ovh/private/counter.js?c=r4bxgygn5cdwjgk18hhx7xehya7g2es6&down=async" async></script>
+	<noscript><a href="https://www.freecounterstat.com" title="free website counter"><img src="https://counter3.stat.ovh/private/freecounterstat.php?c=r4bxgygn5cdwjgk18hhx7xehya7g2es6" border="0" title="free website counter" alt="free website counter"></a></noscript>
+
+</body>
+</html>
